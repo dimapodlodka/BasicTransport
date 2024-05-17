@@ -3,7 +3,7 @@ DPOUT=1.d-4;
 TSTART=0.028d0;
 TINIT=0.03d0;
 TEND=0.05d0;
-TPAUSE=0.034d0;
+!TPAUSE=0.034d0;
 !TSCALE=0.02d0;
 TSCALE=0.015d0;
 !TAUMIN=TAUMAX;
@@ -94,9 +94,7 @@ CF10=0.1d0;  !interval between configlhcd() calls, sec
 CF11=0.032d0;  !first call of lhcd()
 !configlhcd:CF10:CF11:;
 
-saveprofiles::CF2::;
-lhcd2017(PELH):CF1:CF2::;
-drivencurrent(CULH,CAR32,CU)::CF2::;
+debug:0.0001:DSTART::;
 
 
 !fokplanck(CAR24,CAR25,CAR26)::::;
