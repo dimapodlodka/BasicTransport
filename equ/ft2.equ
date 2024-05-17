@@ -37,16 +37,7 @@ CU=FPR;
 !!!CC=CCSP+CCMHD; !+CAR32;
 CAR31=CNHR+CCMHD;
 CC=CAR31;
-!CC=CNHR+CCMHD; !+CAR32;
-!!CU=CC;
-!!CUBS="work(j,301)";
 
-!!HC=HCHH;	DC=DCHH;	XC=XCHH;  !CC=CCSP; !CC=CNHR;
-!!HC=HCHR;	DC=DCHR;	XC=XCHR;
-!!HC=HCKIM;      DC=DCKIM;    XC=XCKIM;
-!!!!HC=HCHR;       DC=DCHR;     XC=XCHR;
-!!CC=CNHR+CCMHD;
-!!!CD=CULH+CUBM;     ! LH & NBI driven current 
 !MU=0.33*FPR+0.33;
 !!!CC=CCSP+CCMHD;
 
@@ -72,18 +63,12 @@ CF14=1.d0;
 TE=(CF12-CF13)*FPA**CF14+CF13;
 
 
-!PRAD=PRADX;
-!PEX=PELH;
-!PET=-PEI;
-!PE=PJOUL-PET*TI-PRAD+PEX;
-!!PE=PJOUL-PEICL-PRADX;
-
 !====================  Ion  temperature =================================
 TI:AS;
 !TI=0.3d0*TE;
 TI=TIX;
 
-
+! === export to AstraBox
 debug:0.0001:DSTART::;
 
 
