@@ -82,29 +82,9 @@ TE=(CF12-CF13)*FPA**CF14+CF13;
 TI:AS;
 !TI=0.3d0*TE;
 TI=TIX;
-!!TI:EQ;
-!!PIT=PET;	PI=-PET*TE+PINEU;	XI=HE+CHE4*HNGSI;
 
-!!!!!!!! Fokplanch !!!!
-QLH=ZRD1;
-CF1=0.1d-3;  !interval between lhcd() calls, sec
-CF2=0.0300d0;  !first call of lhcd()
-
-CF10=0.1d0;  !interval between configlhcd() calls, sec
-CF11=0.032d0;  !first call of lhcd()
-!configlhcd:CF10:CF11:;
 
 debug:0.0001:DSTART::;
-
-
-!fokplanck(CAR24,CAR25,CAR26)::::;
-!!testarr()::::;
-!CULH= driven curren density by stopped electrons, MA/m^2
-!PELH= total power deposition into electrons, MW/m^3
-CD=CULH;   !Externally driven current density profile, MA/m^2
-CCD1=VINT(PELHB);   !absorbed QLH power
-CCD2=IINT(CULHB);   !driven current
-!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 !====================   Radial output  =================================
@@ -140,63 +120,5 @@ Ipl_IPL_-10;        E_UPL/RTOR/GP2_-2;
 !Efld\CAR16;
 !Li\LINT;
 
-!Qlh_QLH_-20;           q(0)_1.d0/MUC;
-!Qjoul_QJOULB_-20;      q(1)_1.d0/MUB;
-!PLH_CCD1_-20;          _;
-!Qoh_QOHB_-20;          Iohm_IPL-ICDB-IBSB-ILHB;
 
-!Ilh_ILHB_0.05;   Qlh_QLH;
-!Ist_CV3_0.05;    Itot_IPL_0.05;
-!Upl_UPLB_2;      tau_tau; !HXR_CV11;
-!UpX_CV10_2;      Plh_CV1; !Irun_CV4_0.05;
-
-! C12_CV12;
-!UpX_ZRD2_2;
-!HXR_ZRD4;
-!Ist1_CV5_;
-!UpX_ZRD2_2;
-!Plh_CV1;     q_1./MUC;
-!ILH2_CV2;    qC_1./MUB;
-!Iohm_IOHMB;  Ibs_IBSB_;
-!Nout_CV5;    HXR_ZRD4;
-
-!====================  LH current drive ================================ 
-!QLH=ZRD1;
-!CF1=0.5d-3;  !interval between lhcd() calls, sec
-!CF2=0.03029d0;  !first call of lhcd()
-
-!CF16=0.d0; !if=0, no writing trajectories
-!!lhcd2014(CF16,CULH,PELH,CAR1,CAR2,CAR3,CUR4):CF1:CF2::;
-!!!!! definitions for lhcd2014() arguments  !!!!  
-!CULH= driven curren density by stopped electrons, MA/m^2
-!PELH= total power deposition into electrons, MW/m^3
-!CAR1= power deposition into electrons via collisions, MW/m^3
-!CAR2 = power deposition into electrons in 'fast mode'
-!CAR3 = power deposition into fast alphas
-!CAR4 = relative density profile of fast alphas
-
-!CCD1=VINT(PELHB);   !absorbed QLH power
-!CCD2=IINT(CULHB);   !driven current
-!CD=CULH;   !Externally driven current density profile, MA/m^2
-
-!!!!!!!! LHCD !!!!
-!CF1=0.5d-3;  !interval between lhcd() calls, sec
-!CF2=0.0303d0;  !first call of lhcd()
-!QLH=ZRD1;
-!!!configlhcd:CF1:CF2::;
-!saveprofiles::CF2::;
-!lhcd2017(PELH):CF1:CF2::;
-!drivencurrent(CULH)::CF2::;
-!!!PELH= total power deposition into electrons, MW/m^3
-!fokplanck(CAR24,CAR25,CAR26)::::;
-!!testarr()::::;
-!CD=CULH;   !Externally driven current density profile, MA/m^2
-!CCD1=VINT(PELHB);   !absorbed QLH power
-!CCD2=IINT(CULHB);   !driven current
-
-!CV1=VINT(PELHB);   !absorbed QLH power
-!CV2=IINT(CULHB);   !driven current
-!CV3=IINT(CAR1B);  !stopped electrons
-!CV4=IINT(CAR10B);   !runaway electrons
-!!!!!!!!!!!!!!!!!!!!!!!
 
